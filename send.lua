@@ -113,7 +113,7 @@ local function sendToDiscord()
                         ["value"] = "Defense: " .. v .. "\nSword: " .. w .. "\nGun: " .. x .. "\nMelee: " .. y .. "\nDemon Fruit: " .. z,
                         ["inline"] = true
                     },
-                                        {
+                    {
                         ["name"] = "Blox Fruits",
                         ["value"] = "Gravity: " .. laySoLuongVatPham("Gravity") .. "\nSpirit: " .. laySoLuongVatPham("Spirit") .. "\nLeopard: " .. laySoLuongVatPham("Leopard") .. "\nControl: " .. laySoLuongVatPham("Control") .. "\nVenom: " .. laySoLuongVatPham("Venom") .. "\nGas: " .. laySoLuongVatPham("Gas") .. "\nT-Rex: " .. laySoLuongVatPham("T-Rex") .. "\nMammoth: " .. laySoLuongVatPham("Mammoth") .. "\nShadow: " .. laySoLuongVatPham("Shadow") .. "\nLightning: " .. laySoLuongVatPham("Lightning") .. "\nDough: " .. laySoLuongVatPham("Dough") .. "\nPain: " .. laySoLuongVatPham("Pain") .. "\nYeti: " .. laySoLuongVatPham("Yeti") .. "\nKitsune: " .. laySoLuongVatPham("Kitsune"),
                         ["inline"] = false
