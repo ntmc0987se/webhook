@@ -2,7 +2,6 @@
 _G.WebhookURL = "" 
 _G.Time = 300
 ]]
-
 local HttpService = game:GetService("HttpService")
 
 local webhookURL = _G.WebhookURL
@@ -112,12 +111,7 @@ local function sendToDiscord()
                         ["name"] = "Stats",
                         ["value"] = "Defense: " .. v .. "\nSword: " .. w .. "\nGun: " .. x .. "\nMelee: " .. y .. "\nDemon Fruit: " .. z,
                         ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Blox Fruits",
-                        ["value"] = "Gravity: " .. laySoLuongVatPham("Gravity") .. "\nSpirit: " .. laySoLuongVatPham("Spirit") .. "\nLeopard: " .. laySoLuongVatPham("Leopard") .. "\nControl: " .. laySoLuongVatPham("Control") .. "\nVenom: " .. laySoLuongVatPham("Venom") .. "\nGas: " .. laySoLuongVatPham("Gas") .. "\nT-Rex: " .. laySoLuongVatPham("T-Rex") .. "\nMammoth: " .. laySoLuongVatPham("Mammoth") .. "\nShadow: " .. laySoLuongVatPham("Shadow") .. "\nLightning: " .. laySoLuongVatPham("Lightning") .. "\nDough: " .. laySoLuongVatPham("Dough") .. "\nPain: " .. laySoLuongVatPham("Pain") .. "\nYeti: " .. laySoLuongVatPham("Yeti") .. "\nKitsune: " .. laySoLuongVatPham("Kitsune"),
-                        ["inline"] = false
-                    }
+                    } --,
 --[[                    
                     {
                         ["name"] = "Other",
@@ -165,6 +159,7 @@ end
 
 -- Vòng lặp để gửi thông báo định kỳ
 while true do
+    -- Gọi hàm để gửi thông tin
     sendToDiscord()
     wait(_G.Time)
 end
