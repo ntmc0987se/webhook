@@ -2,10 +2,7 @@
 _G.WebhookURL = "" 
 _G.Time = 300
 ]]
---[[ 
-_G.WebhookURL = "https://discordapp.com/api/webhooks/1411959455834308658/RS2PlHhmfvMU0v8cwAD-qhYDv97MD7BUs1DEOI2VhAFgxqXxrPrFfloYrdaBkHdy-RRH" 
-_G.Time = 300
---]]
+
 local HttpService = game:GetService("HttpService")
 
 local webhookURL = _G.WebhookURL
