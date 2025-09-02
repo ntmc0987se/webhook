@@ -103,7 +103,7 @@ local function sendToDiscord()
                 ["fields"] = {
                     {
                         ["name"] = "Materials",
-                        ["value"] = "Beli: " .. a .. "\nFragments: " .. b .. "\nSummer Token: " .. c .. "\nOni Token: " .. d .. "Bone : " .. e .. "\nConjured Cocoa: " .. f .. "\nVampire Fang: " .. g,
+                        ["value"] = "Beli: " .. a .. "\nFragments: " .. b .. "\nSummer Token: " .. c .. "\nOni Token: " .. d .. "\nBone : " .. e .. "\nConjured Cocoa: " .. f .. "\nVampire Fang: " .. g,
                         ["inline"] = false
                     },
                     {
