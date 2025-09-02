@@ -9,7 +9,7 @@ local players = game:GetService("Players")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local nguoiChoi = players.LocalPlayer
 
--- Hàm lấy số lượng vật phẩm, đã sửa lại cách duyệt kho đồ
+-- Hàm lấy số lượng vật phẩm
 local function laySoLuongVatPham(tenVatPham)
     -- Sử dụng WaitForChild để đảm bảo thư mục Remotes đã được tải xong
     local remotesFolder = replicatedStorage:WaitForChild("Remotes", 5)
