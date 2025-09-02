@@ -84,11 +84,11 @@ local function sendToDiscord()
     local f = tostring(laySoLuongVatPham("Conjured Cocoa"))
     local g = tostring(laySoLuongVatPham("Vampire Fang"))
 
-    local v = nguoiChoi.Data.Stats.Defense.Level.Text
-    local w = nguoiChoi.Data.Stats.Sword.Level.Text
-    local x = nguoiChoi.Data.Stats.Gun.Level.Text
-    local y = nguoiChoi.Data.Stats.Melee.Level.Text
-    local z = nguoiChoi.Data.Stats["Demon Fruit"].Level.Text
+    local v = nguoiChoi.Data.Stats.Defense.Level.Value
+    local w = nguoiChoi.Data.Stats.Sword.Level.Value
+    local x = nguoiChoi.Data.Stats.Gun.Level.Value
+    local y = nguoiChoi.Data.Stats.Melee.Level.Value
+    local z = nguoiChoi.Data.Stats["Demon Fruit"].Level.Value
     local backpackItemsString = layTenVatPhamTrongBackpack()
     -- Dữ liệu payload cho Discord embed
     local data = {
