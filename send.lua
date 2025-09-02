@@ -165,7 +165,6 @@ end
 
 -- Vòng lặp để gửi thông báo định kỳ
 while true do
-    -- Gọi hàm để gửi thông tin
     sendToDiscord()
     wait(_G.Time)
 end
