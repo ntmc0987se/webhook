@@ -46,14 +46,62 @@ local function laySoLuongVatPham(tenVatPham)
     return 0
 end
 
+-- Hàm lấy tất cả tên vật phẩm trong kho đồ và trả về một chuỗi
+local function layTenVatPhamTrongBackpack()
+    local itemNames = {}
+    local backpack = nguoiChoi:WaitForChild("Backpack", 5)
+    
+    if not backpack then
+        warn("Lỗi: Không tìm thấy Backpack sau 5 giây!")
+        return "Không tìm thấy kho đồ."
+    end
+    
+    local items = backpack:GetChildren()
+    
+    -- Duyệt qua từng vật phẩm và thêm tên vào bảng
+    for _, item in pairs(items) do
+        table.insert(itemNames, item.Name)
+    end
+    
+    -- Nếu không có vật phẩm nào, trả về thông báo
+    if #itemNames == 0 then
+        return "Kho đồ trống."
+    else
+        -- Nối các tên vật phẩm thành một chuỗi, phân tách bằng dấu phẩy
+        return table.concat(itemNames, ", ")
+    end
+end
+
 -- Hàm gửi tin nhắn tới Discord
 local function sendToDiscord()
     -- Lấy dữ liệu từ game
-    local uiText1 = nguoiChoi.PlayerGui.Main.Beli.Text
-    local uiText2 = nguoiChoi.PlayerGui.Main.Fragments.Text
-    local uiText3 = tostring(laySoLuongVatPham("Summer Token"))
-    local uiText4 = tostring(laySoLuongVatPham("Oni Token"))
-
+    local a = nguoiChoi.PlayerGui.Main.Beli.Text
+    local b = nguoiChoi.PlayerGui.Main.Fragments.Text
+    local c = tostring(laySoLuongVatPham("Summer Token"))
+    local d = tostring(laySoLuongVatPham("Oni Token"))
+    local e = tostring(laySoLuongVatPham("Bones"))
+    local f = tostring(laySoLuongVatPham("Conjured Cocoa"))
+    local g = tostring(laySoLuongVatPham("Vampire Fang"))
+    local h = tostring(laySoLuongVatPham("Gravity"))
+    local i = tostring(laySoLuongVatPham("Spirit"))
+    local j = tostring(laySoLuongVatPham("Leopard"))
+    local k = tostring(laySoLuongVatPham("Control"))
+    local l = tostring(laySoLuongVatPham("Venom"))
+    local m = tostring(laySoLuongVatPham("Gas"))
+    local n = tostring(laySoLuongVatPham("T-Rex"))
+    local o = tostring(laySoLuongVatPham("Mammoth"))
+    local p = tostring(laySoLuongVatPham("Shadow"))
+    local q = tostring(laySoLuongVatPham("Lightning"))
+    local r = tostring(laySoLuongVatPham("Dough"))    
+    local s = tostring(laySoLuongVatPham("Pain"))
+    local t = tostring(laySoLuongVatPham("Yeti"))
+    local u = tostring(laySoLuongVatPham("Kitsune"))
+    local v = nguoiChoi.Data.Stats.Defense.Level.Text
+    local w = nguoiChoi.Data.Stats.Sword.Level.Text
+    local x = nguoiChoi.Data.Stats.Gun.Level.Text
+    local y = nguoiChoi.Data.Stats.Melee.Level.Text
+    local z = nguoiChoi.Data.Stats["Demon Fruit"].Level.Text
+    local backpackItemsString = layTenVatPhamTrongBackpack()
     -- Dữ liệu payload cho Discord embed
     local data = {
         ["embeds"] = {
@@ -63,25 +111,32 @@ local function sendToDiscord()
                 ["color"] = 15258703,
                 ["fields"] = {
                     {
-                        ["name"] = "Beli",
-                        ["value"] = uiText1,
+                        ["name"] = "Materials",
+                        ["value"] = "Beli: " .. a .. "\nFragments: " .. b .. "\nSummer Token: " .. c .. "\nOni Token: " .. d .. "Bone : " .. e .. "\nConjured Cocoa: " .. f .. "\nVampire Fang: " .. g,
+                        ["inline"] = false
+                    },
+                    {
+                        ["name"] = "Backpack",
+                        ["value"] = backpackItemsString,
                         ["inline"] = true
                     },
                     {
-                        ["name"] = "Fragments",
-                        ["value"] = uiText2,
+                        ["name"] = "Stats",
+                        ["value"] = "Defense: " .. v .. "\nSword: " .. w .. "\nGun: " .. x .. "\nMelee: " .. y .. "\nDemon Fruit: " .. z,
                         ["inline"] = true
                     },
                     {
-                        ["name"] = "Summer Token",
-                        ["value"] = uiText3,
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Oni Token",
-                        ["value"] = uiText4,
-                        ["inline"] = true
+                        ["name"] = "Blox fruit",
+                        ["value"] = "Gravity: " .. h .. "\nSpirit: " .. i .. "\nLeopard: " .. j .. "\nControl: " .. k .. "\nVenom: " .. l .. "\nGas: " .. m .. "\nT-Rex: " .. n .. "\nMammoth: " .. o .. "\nShadow: " .. p .. "\nLightning: " .. q .. "\nDough: " .. r .. "\nPain: " .. s .. "\nYeti: " .. t .. "\nKitsune: " .. u,
+                        ["inline"] = false
                     }
+--[[                    
+                    {
+                        ["name"] = "Other",
+                        ["value"] = "Some other information here.",
+                        ["inline"] = false
+                    }
+]]
                 },
                 ["footer"] = {
                     ["text"] = "Gửi lúc: " .. os.date("%H:%M:%S ngày %d/%m/%Y")
@@ -93,12 +148,12 @@ local function sendToDiscord()
     -- 1. Chuyển đổi bảng Lua thành chuỗi JSON
     local jsonData
     local success, err = pcall(function()
-    	jsonData = HttpService:JSONEncode(data)
+        jsonData = HttpService:JSONEncode(data)
     end)
     
     if not success then
-    	warn("Lỗi khi mã hóa JSON: ", err)
-    	return
+        warn("Lỗi khi mã hóa JSON: ", err)
+        return
     end
 
     -- 2. Gửi yêu cầu HTTP POST với dữ liệu JSON
@@ -126,4 +181,3 @@ while true do
     sendToDiscord()
     wait(_G.Time)
 end
-
