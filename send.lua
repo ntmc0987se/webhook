@@ -3,7 +3,7 @@ _G.WebhookURL = ""
 _G.Time = 300
 ]]
 local HttpService = game:GetService("HttpService")
-
+local startTime = tick()
 local webhookURL = _G.WebhookURL
 local players = game:GetService("Players")
 local replicatedStorage = game:GetService("ReplicatedStorage")
@@ -82,7 +82,11 @@ local function sendToDiscord()
     local e = tostring(laySoLuongVatPham("Bones"))
     local f = tostring(laySoLuongVatPham("Conjured Cocoa"))
     local g = tostring(laySoLuongVatPham("Vampire Fang"))
-
+    local elapsedTime = math.floor(tick() - startTime)
+    local hours = string.format("%02d", math.floor(elapsedTime / 3600))
+    local minutes = string.format("%02d", math.floor((elapsedTime % 3600) / 60))
+    local seconds = string.format("%02d", elapsedTime % 60)
+    local formattedTime = "Thời gian chơi: " .. hours .. " giờ " .. minutes .. " phút " .. seconds .. " giây"
     local v = nguoiChoi.Data.Stats.Defense.Level.Value
     local w = nguoiChoi.Data.Stats.Sword.Level.Value
     local x = nguoiChoi.Data.Stats.Gun.Level.Value
@@ -94,7 +98,7 @@ local function sendToDiscord()
         ["embeds"] = {
             {
                 ["title"] = "📊 Status",
-                ["description"] = "Thông tin tài nguyên của người chơi.",
+                ["description"] = formattedTime,
                 ["color"] = 15258703,
                 ["fields"] = {
                     {
@@ -159,7 +163,6 @@ end
 
 -- Vòng lặp để gửi thông báo định kỳ
 while true do
-    -- Gọi hàm để gửi thông tin
     sendToDiscord()
     wait(_G.Time)
 end
