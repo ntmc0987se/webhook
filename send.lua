@@ -68,7 +68,7 @@ local function layTenVatPhamTrongBackpack()
         return "Kho đồ trống."
     else
         -- Nối các tên vật phẩm thành một chuỗi, phân tách bằng dấu phẩy
-        return table.concat(itemNames, ", ")
+        return table.concat("```" .. itemNames, ",\n```")
     end
 end
 
@@ -103,7 +103,7 @@ local function sendToDiscord()
                 ["fields"] = {
                     {
                         ["name"] = "Materials",
-                        ["value"] = "Beli: " .. a .. "\nFragments: " .. b .. "\nSummer Token: " .. c .. "\nOni Token: " .. d .. "\nBone : " .. e .. "\nConjured Cocoa: " .. f .. "\nVampire Fang: " .. g,
+                        ["value"] = "```Beli: " .. a .. ",\nFragments: " .. b .. ",\nSummer Token: " .. c .. ",\nOni Token: " .. d .. ",\nBone : " .. e .. ",\nConjured Cocoa: " .. f .. ",\nVampire Fang: " .. g .. "```",
                         ["inline"] = false
                     },
                     {
@@ -113,7 +113,7 @@ local function sendToDiscord()
                     },
                     {
                         ["name"] = "Stats",
-                        ["value"] = "Defense: " .. v .. "\nSword: " .. w .. "\nGun: " .. x .. "\nMelee: " .. y .. "\nDemon Fruit: " .. z,
+                        ["value"] = "```Defense: " .. v .. ",\nSword: " .. w .. ",\nGun: " .. x .. ",\nMelee: " .. y .. ",\nDemon Fruit: " .. z .. "```",
                         ["inline"] = true
                     } --,
 --[[                    
