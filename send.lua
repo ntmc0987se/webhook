@@ -2,6 +2,10 @@
 _G.WebhookURL = "" 
 _G.Time = 300
 ]]
+--[[ 
+_G.WebhookURL = "https://discordapp.com/api/webhooks/1411959455834308658/RS2PlHhmfvMU0v8cwAD-qhYDv97MD7BUs1DEOI2VhAFgxqXxrPrFfloYrdaBkHdy-RRH" 
+_G.Time = 300
+--]]
 local HttpService = game:GetService("HttpService")
 
 local webhookURL = _G.WebhookURL
@@ -82,20 +86,7 @@ local function sendToDiscord()
     local e = tostring(laySoLuongVatPham("Bones"))
     local f = tostring(laySoLuongVatPham("Conjured Cocoa"))
     local g = tostring(laySoLuongVatPham("Vampire Fang"))
-    local h = tostring(laySoLuongVatPham("Gravity"))
-    local i = tostring(laySoLuongVatPham("Spirit"))
-    local j = tostring(laySoLuongVatPham("Leopard"))
-    local k = tostring(laySoLuongVatPham("Control"))
-    local l = tostring(laySoLuongVatPham("Venom"))
-    local m = tostring(laySoLuongVatPham("Gas"))
-    local n = tostring(laySoLuongVatPham("T-Rex"))
-    local o = tostring(laySoLuongVatPham("Mammoth"))
-    local p = tostring(laySoLuongVatPham("Shadow"))
-    local q = tostring(laySoLuongVatPham("Lightning"))
-    local r = tostring(laySoLuongVatPham("Dough"))    
-    local s = tostring(laySoLuongVatPham("Pain"))
-    local t = tostring(laySoLuongVatPham("Yeti"))
-    local u = tostring(laySoLuongVatPham("Kitsune"))
+
     local v = nguoiChoi.Data.Stats.Defense.Level.Text
     local w = nguoiChoi.Data.Stats.Sword.Level.Text
     local x = nguoiChoi.Data.Stats.Gun.Level.Text
@@ -125,11 +116,6 @@ local function sendToDiscord()
                         ["value"] = "Defense: " .. v .. "\nSword: " .. w .. "\nGun: " .. x .. "\nMelee: " .. y .. "\nDemon Fruit: " .. z,
                         ["inline"] = true
                     },
-                    {
-                        ["name"] = "Blox fruit",
-                        ["value"] = "Gravity: " .. h .. "\nSpirit: " .. i .. "\nLeopard: " .. j .. "\nControl: " .. k .. "\nVenom: " .. l .. "\nGas: " .. m .. "\nT-Rex: " .. n .. "\nMammoth: " .. o .. "\nShadow: " .. p .. "\nLightning: " .. q .. "\nDough: " .. r .. "\nPain: " .. s .. "\nYeti: " .. t .. "\nKitsune: " .. u,
-                        ["inline"] = false
-                    }
 --[[                    
                     {
                         ["name"] = "Other",
