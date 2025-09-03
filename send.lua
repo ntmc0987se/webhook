@@ -65,10 +65,12 @@ local function layTenVatPhamTrongBackpack()
     
     -- Nếu không có vật phẩm nào, trả về thông báo
     if #itemNames == 0 then
-        return "Kho đồ trống."
+        return "```Kho đồ trống.```"
     else
-        -- Nối các tên vật phẩm thành một chuỗi, phân tách bằng dấu phẩy
-        return table.concat("```" .. itemNames, ",\n```")
+        -- 1. Nối các tên vật phẩm thành một chuỗi, phân tách bằng dấu phẩy và xuống dòng.
+        local concatenatedItems = table.concat(itemNames, ",\n")
+        -- 2. Thêm dấu ``` vào trước và sau chuỗi vừa tạo.
+        return "```\n" .. concatenatedItems .. "\n```"
     end
 end
 
