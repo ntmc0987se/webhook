@@ -77,8 +77,8 @@ end
 -- Hàm gửi tin nhắn tới Discord
 local function sendToDiscord()
     -- Lấy dữ liệu từ game
-    local a = nguoiChoi.PlayerGui.Main.Beli.Text
-    local b = nguoiChoi.PlayerGui.Main.Fragments.Text
+    local a = nguoiChoi.PlayerGui:WaitForChild("Main"):WaitForChild("Beli").Text
+    local b = nguoiChoi.PlayerGui:WaitForChild("Main"):WaitForChild("Fragments").Text
     local c = tostring(laySoLuongVatPham("Summer Token"))
     local d = tostring(laySoLuongVatPham("Oni Token"))
     local e = tostring(laySoLuongVatPham("Bones"))
