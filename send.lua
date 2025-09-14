@@ -82,13 +82,13 @@ local function sendToDiscord()
     local c = tostring(laySoLuongVatPham("Summer Token"))
     local d = tostring(laySoLuongVatPham("Oni Token"))
     local e = tostring(laySoLuongVatPham("Bones"))
-    local f = tostring(laySoLuongVatPham("Conjured Cocoa"))
-    local g = tostring(laySoLuongVatPham("Vampire Fang"))
-    local elapsedTime = math.floor(tick() - startTime)
-    local hours = string.format("%02d", math.floor(elapsedTime / 3600))
-    local minutes = string.format("%02d", math.floor((elapsedTime % 3600) / 60))
-    local seconds = string.format("%02d", elapsedTime % 60)
-    local formattedTime = "Thời gian chơi: " .. hours .. " giờ " .. minutes .. " phút " .. seconds .. " giây"
+--    local f = tostring(laySoLuongVatPham("Conjured Cocoa"))
+    local g = tostring(laySoLuongVatPham("Celestial Token"))
+    local serverTime = os.date("*t")
+    local hours = string.format("%02d", serverTime.hour)
+    local minutes = string.format("%02d", serverTime.min)
+    local seconds = string.format("%02d", serverTime.sec)
+    local formattedTime = "Thời gian hiện tại: " .. hours .. " giờ " .. minutes .. " phút " .. seconds .. " giây"
     local v = nguoiChoi.Data.Stats.Defense.Level.Value
     local w = nguoiChoi.Data.Stats.Sword.Level.Value
     local x = nguoiChoi.Data.Stats.Gun.Level.Value
@@ -104,8 +104,8 @@ local function sendToDiscord()
                 ["color"] = 15258703,
                 ["fields"] = {
                     {
-                        ["name"] = "Materials",
-                        ["value"] = "```Beli: " .. a .. ",\nFragments: " .. b .. ",\nSummer Token: " .. c .. ",\nOni Token: " .. d .. ",\nBone : " .. e .. ",\nConjured Cocoa: " .. f .. ",\nVampire Fang: " .. g .. "```",
+                        ["name"] = "Info",
+                        ["value"] = "```Beli: " .. a .. ",\nFragments: " .. b .. ",\nSummer Token: " .. c .. ",\nOni Token: " .. d .. ",\nBone : " .. e ..--[[",\nConjured Cocoa: " .. f .. ]] ",\nCelestial Token: " .. g .. "```",
                         ["inline"] = false
                     },
                     {
